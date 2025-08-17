@@ -1,3 +1,8 @@
+folder('services') {
+    displayName('Services')
+    description('Folder for all microservice pipeline jobs')
+}
+
 pipelineJob('services/config-server') {
     description('Pipeline job for Config Server')
     definition {
@@ -6,12 +11,12 @@ pipelineJob('services/config-server') {
                 git {
                     remote {
                         url('https://github.com/jeetlalbhatrai/test11june.git')
-                        credentials('bitbucket-creds')   // Jenkins credentials ID
+                        credentials('bitbucket-creds')
                     }
                     branch('main')
                 }
             }
-            scriptPath('Jenkinsfile')  // Jenkinsfile inside service repo
+            scriptPath('Jenkinsfile')
         }
     }
 }
