@@ -12,11 +12,15 @@ Prerequisite->
 
 https://github.com/jeetlalbhatrai/seed-jobs-microservice.git
 seed-jobs/
-├─ dsl/
-│   └─ pipelines.groovy
-└─ service-jobs/
-    ├─ config-server/Jenkinsfile
-    └─ kyc-service/Jenkinsfile
+├── Jenkinsfile
+├── README.md
+├── dsl
+│   └── pipelines.groovy
+└── service-jobs
+    ├── config-server
+    │   └── Jenkinsfile
+    └── kyc-service
+        └── Jenkinsfile
 
 
 
