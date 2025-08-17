@@ -29,25 +29,39 @@
 //     }
 // }
 
-folder('JWR/Build-Services')
+folder('JWR') {
+    displayName('JWR')
+    description('Parent folder for JWR services')
+}
 
-multibranchPipelineJob('JWR/Build-Services/jg-jwr-config-server') {
-    branchSources {
-        git {
-            id('jg-jwr-config-server')
-            remote('https://bitbucket.org/<workspace>/jg-jwr-config-server.git')
-            credentialsId('bb-credentials')
+folder('JWR/Build-Services') {
+    displayName('Build-Services')
+    description('Pipelines for JWR microservices')
+}
+
+def repos = [
+    [name: 'jg-jwr-config-server', url: 'https://github.com/jeetlalbhatrai/test11june.git'],
+    [name: 'jg-jwr-osgiparser',    url: 'https://github.com/jeetlalbhatrai/jg-jwr-osgiparser.git']
+]
+
+repos.each { svc ->
+    multibranchPipelineJob("JWR/Build-Services/${svc.name}") {
+        branchSources {
+            git {
+                id(svc.name)
+                remote(svc.url)
+                credentialsId('github-credentials')   // update with your creds ID
+            }
         }
-    }
-    factory {
-        workflowBranchProjectFactory {
-            scriptPath('Jenkinsfile')   // declaratively points to repo’s Jenkinsfile
+        factory {
+            workflowBranchProjectFactory {
+                scriptPath('Jenkinsfile')
+            }
         }
-    }
-    orphanedItemStrategy {
-        discardOldItems {
-            numToKeep(10)
+        orphanedItemStrategy {
+            discardOldItems {
+                numToKeep(10)
+            }
         }
     }
 }
-
