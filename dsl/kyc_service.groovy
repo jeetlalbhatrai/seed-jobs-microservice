@@ -13,7 +13,7 @@ pipelineJob('services/kyc-server') {
                         url('https://github.com/jeetlalbhatrai/test11june.git')
                         credentials('bitbucket-creds')
                     }
-                    branch('main')
+                    branch('master')
                 }
             }
             scriptPath('Jenkinsfile')
