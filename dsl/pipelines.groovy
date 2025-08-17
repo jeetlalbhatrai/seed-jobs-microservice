@@ -1,5 +1,7 @@
 def repos = [
-    [name: 'jg-jwr-config-server', url: 'https://bitbucket.org/<workspace>/jg-jwr-config-server.git']
+    [name: 'jg-jwr-config-server', url: 'https://github.com/jeetlalbhatrai/test11june.git']
+    // [name: 'jg-jwr-config-server', url: 'https://bitbucket.org/<workspace>/jg-jwr-config-server.git'],
+    // [name: 'jg-jwr-osgiparser',    url: 'https://bitbucket.org/<workspace>/jg-jwr-osgiparser.git']
 ]
 
 folder('JWR')
