@@ -4,7 +4,9 @@ pipeline {
         stage('Checkout seed repo') {
             steps {
                 git branch: 'main',
-                    url: 'https://github.com/jeetlalbhatrai/seed-jobs-microservice.git',
+                    url: 'https://github.com/jeetlalbhatrai/seed-jobs-microservice.git'
+                    // url: 'https://github.com/jeetlalbhatrai/seed-jobs-microservice.git',
+                    // credentialsId: 'bb-app'
             }
         }
         stage('Generate jobs') {
@@ -17,4 +19,3 @@ pipeline {
         }
     }
 }
-##credentialsId: 'bb-app' row-8
