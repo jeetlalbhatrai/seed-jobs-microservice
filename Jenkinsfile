@@ -3,10 +3,8 @@ pipeline {
     stages {
         stage('Checkout seed repo') {
             steps {
-                git branch: 'main',
+                git branch: 'main2',
                     url: 'https://github.com/jeetlalbhatrai/seed-jobs-microservice.git'
-                    // url: 'https://github.com/jeetlalbhatrai/seed-jobs-microservice.git',
-                    // credentialsId: 'bb-app'
             }
         }
         stage('Generate jobs') {
